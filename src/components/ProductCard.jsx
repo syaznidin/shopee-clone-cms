@@ -1,12 +1,13 @@
 function ProductCard({ product }) {
-    return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {dummyProducts.map(product => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
-    );
-  }
-  
-  export default ProductCard;
-  
+  if (!product) return null;
+
+  return (
+    <div className="border rounded-lg shadow p-4 text-center">
+      <img src={product.image} alt={product.name} className="w-full h-40 object-cover mb-2" />
+      <h2 className="text-lg font-bold text-gray-800">{product.name}</h2>
+      <p className="text-orange-600 font-semibold mt-1">${product.price}</p>
+    </div>
+  );
+}
+
+export default ProductCard;
